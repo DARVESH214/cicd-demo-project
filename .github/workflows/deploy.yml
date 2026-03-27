@@ -1,2 +1,4 @@
 
-CI/CD SUCCESS
+- name: Deploy to EC2
+  run: |
+    ssh -o StrictHostKeyChecking=no ubuntu@13.218.50.206 "echo 'CI/CD SUCCESS ' | sudo tee /var/www/html/index.html"
