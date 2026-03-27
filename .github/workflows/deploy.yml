@@ -1,26 +1,12 @@
-name: Deploy to EC2
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Setup SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.EC2_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-
-    - name: Deploy to EC2
-      run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@13.218.50.206 << 'EOF'
-        sudo rm -rf /var/www/html/*
-        sudo bash -c 'echo "<h1>🔥 CI/CD SUCCESS 🔥</h1>" > /var/www/html/index.html'
-        EOF
+sudo bash -c 'cat > /var/www/html/index.html <<EOF
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CI/CD</title>
+</head>
+<body>
+    <h1>🔥 CI/CD SUCCESS MAMA 🔥</h1>
+</body>
+</html>
+EOF'
