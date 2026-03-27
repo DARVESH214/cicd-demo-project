@@ -1,12 +1,2 @@
-sudo bash -c 'cat > /var/www/html/index.html <<EOF
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>CI/CD</title>
-</head>
-<body>
-    <h1>🔥 CI/CD SUCCESS MAMA 🔥</h1>
-</body>
-</html>
-EOF'
+
+CI/CD SUCCESS
