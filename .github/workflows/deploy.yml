@@ -1,15 +1,8 @@
-name: Deploy to EC2
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy to EC2
-        run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@13.218.50.206 "echo 'CI/CD SUCCESS MAMA' | sudo tee /var/www/html/index.html"
+- name: Deploy to EC2
+  uses: appleboy/ssh-action@v0.1.10
+  with:
+    host: 13.218.50.206
+    username: ubuntu
+    key: ${{ secrets.EC2_KEY }}
+    script: |
+      echo "CI/CD SUCCESS " | sudo tee /var/www/html/index.html
